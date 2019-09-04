@@ -1,0 +1,53 @@
+@charset "utf-8";
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.header, .visual, .main-content, .slogan, .footer{
+  margin: 0 auto;
+  width : 940px;
+  box-sizing: border-box;
+}
+
+.header{
+  height: 10vh; /* 뷰포트 기준 10퍼센트 */
+  background-color: pink;
+}
+
+.visual{
+  background-color: red;
+  height: 120px;
+}
+
+.main-content{
+  background-color: blue;
+  min-height: 400px;
+}
+
+.slogan{
+  background-color: orange;
+  padding: 15px 0;
+}
+
+.group group1{
+  width : 250px;
+}
+
+.group group2{
+  width : 380px;
+}
+
+.group group3{
+  width : 190px;
+}
+
+.footer-bg{
+  background-color: silver;
+  padding: 15px 0;
+}
+
+.footer{
+  background-color: yellow;
+}
