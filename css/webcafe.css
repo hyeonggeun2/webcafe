@@ -1,53 +1,70 @@
 @charset "utf-8";
-
-body {
-  margin: 0;
-  padding: 0;
-}
-
-.header, .visual, .main-content, .slogan, .footer{
-  margin: 0 auto;
-  width : 940px;
+/* 초기화 */
+*, *::before, *::after{ /* 전체 선택자 */
   box-sizing: border-box;
 }
 
+body {
+  margin : 0;
+  padding : 0;
+}
+
+.header, .visual, .main-content, .slogan, .footer{
+  margin : 0 auto;
+  width : 940px;
+}
+
 .header{
-  height: 10vh; /* 뷰포트 기준 10퍼센트 */
-  background-color: pink;
+  height : 10vh; /* 뷰포트 기준 10퍼센트 */
+  background-color : pink;
 }
 
 .visual{
-  background-color: red;
-  height: 120px;
+  background-color : red;
+  height : 120px;
 }
 
 .main-content{
-  background-color: blue;
-  min-height: 400px;
+  background-color : blue;
+  display : flex;
+  min-height : 400px;
+  padding: 30px;
+  flex-direction: row;/* flex형태는 가로만 가능한 것이 아니라 다양한 속성이 가능하다. */
+  /* direction은 메인 축을 정하는데 row는 Main:X Cross:Y column은 반대이다*/
+  justify-content: space-between;/* 알아서 여백을 계산해준다 */
 }
 
 .slogan{
-  background-color: orange;
-  padding: 15px 0;
+  background-color : orange;
+  padding : 15px 0;
 }
 
-.group group1{
-  width : 250px;
+.group{
+  background-color: red;
 }
 
-.group group2{
-  width : 380px;
+.group1{
+  flex-basis: 250px;
+  /* flex-grow : 2; *//* 값을 비율로 확대시킨다 grow/grow`s sum */
+  /* flex-shrink: 1; */
+  /* flex : 50px 2 1; */
 }
 
-.group group3{
-  width : 190px;
+
+.group2{
+  flex-basis: 380px;
+}
+
+.group3{
+  flex-basis: 190px;
+  /* order: -1; flex아이템은 유연하게 위치조정, 크기조정 가능*/
 }
 
 .footer-bg{
-  background-color: silver;
-  padding: 15px 0;
+  background-color : silver;
+  padding : 15px 0;
 }
 
 .footer{
-  background-color: yellow;
+  background-color : yellow;
 }
