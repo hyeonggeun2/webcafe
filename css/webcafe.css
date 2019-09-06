@@ -1,12 +1,52 @@
 @charset "utf-8";
+@import url('https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css');
+@import url('https://necolas.github.io/normalize.css/latest/normalize.css'); /* html에 link해서 사용할 수 있고, 이렇게도 사용할 수 있다 */
+@import url('./fontello.css');
+
 /* 초기화 */
 *, *::before, *::after{ /* 전체 선택자 */
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+  color : inherit;/* 글자색이 부모에게 상속된 색으로 적용된다. (body에서 색을 바꾸면 한번에 적용)*/
+}
+/* 
+a:link{ 방문한 적이 없는 링크
+  color : inherit;
+}
+
+a:visited{ 방문한 적이 있는 링크
+  color :#999;
+}
+a:hover, a:focus{해당 링크에 마우스를 올렸을 떄 색을 바꾼다
+  color: red;
+}
+*/
+
+/* 숨김컨텐츠 */
+.a11y-hidden{ /*보이면 안되는 글씨 숨기기*/
+  position: absolute;
+  width : 1px;/*position과 합쳐서 숨기는 방법.*/
+  height : 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip:rect(0,0,0,0); /*잘라낸다. absolute가 필요.*/
+  white-space: nowrap; /*줄바꾸기 금지*/
+}
+
+html{
+  font-size: 10px;
+}
+
 body {
+  font-size: 1.4rem; /*root의 글자사이즈(해당CSS문서는 10px[html{font-size: 10px}]) * 1.4*/
   margin : 0;
   padding : 0;
+  color: #181818;/* 같은 숫자가 2번 반복되면 축소가능 ex)FF0000 -> F00 */
+  font-family: 'Spoqa Han Sans', 'Sans-serif'; /*Spoqa Han Sans를 사용하는데 만약 글꼴이 없다면 Sans-serif를 사용해라.*/
+  font-weight: 400;
 }
 
 .header, .visual, .main-content, .slogan, .footer{
@@ -15,8 +55,89 @@ body {
 }
 
 .header{
-  height : 10vh; /* 뷰포트 기준 10퍼센트 */
+  /*height : 10vh; /* 뷰포트 기준 10퍼센트 */
   background-color : pink;
+  position: relative; /* 떠있는듯한 포지션을 가지게 된다 */
+  padding: 0 30px 50px 30px;
+}
+
+/* 로고 */
+.logo{
+  margin: 0px;
+  position: absolute;
+  left: 70px;
+  top: 50px;
+}
+
+/* 멤버링크 */
+.member{
+  list-style-type: none;
+  margin: 0px;
+  padding: 2px 0;
+  font-size: 0;
+  text-align: right; /*inline 컨텐츠의 위치를 조정할 수 있다.*/
+  position: relative;
+  right : -10px; /*position: relative 때문에 쓸 수 있는것*/
+  /* display: flex;
+  justify-content: flex-end; */
+/* 교차축 정렬
+  heigth: 100px
+  align-items: flex-end  */
+}
+.member li{
+  display: inline-block;
+  font-size: 1.4rem;
+  text-transform: uppercase; /* 영어를 대문자로 만듦 */
+}
+
+.member li:nth-child(n+2)::before{/* inline성격을 가짐 */
+  font-family: "fontello";
+  content: '\f142';/* before를 사용할 때 꼭 있어야한다 */
+}
+
+.member a{
+  padding: 10px 10px;
+  display : inline-block;
+}
+
+/* 메인메뉴 */
+.menu{
+  background-color: yellow; /*색상을 주고*/
+  background-image: linear-gradient(to bottom, #f2bd2e 0%,#e59500 35%,#e59500 70%,#f2bd2e 100%); /*이미지도 주어서 그라데이션이 안되면 배경 색상(노란색)이 뜬다.*/
+  padding-left: 225px;
+  margin: 5px 0 0 0;
+  list-style: none;
+  border-radius: 0 0 5px 5px/0 0 5px 5px; /*왼쪽위 오른쪽위 오른쪽아래 왼쪽아래(x축/y축[값이 같으면 하나만 적어도 )*/
+  /* border-top: 2px solid black; */
+  box-shadow: 0 -2px 2px 0 #000;
+}
+
+.menu-item{
+  float: left;
+  line-height: 45px;
+}
+
+.menu::after{/*그라데이션 칠하기*/
+  content: '';
+  background-color: aqua;
+  display : block;
+  clear : both; /*블록 상자만 적용 가능*/
+}
+
+.btn-menu{
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: #fff;
+  text-shadow: 1px 0 0 #000, -1px 0 0 #000, 0 1px 0 #000, 0 -1px 0 #000;
+}
+
+.sub-menu{
+  padding-left: 0px;
+  margin: 0;
+  list-style: none;
+  background-color: yellow;
+  position : absolute;
+  display : none; /*안보이게 가림*/
 }
 
 .visual{
@@ -46,10 +167,9 @@ body {
 .group1{
   flex-basis: 250px;
   /* flex-grow : 2; *//* 값을 비율로 확대시킨다 grow/grow`s sum */
-  /* flex-shrink: 1; */
+  /* flex-shrink: 1; */ /*비율 감소*/
   /* flex : 50px 2 1; */
 }
-
 
 .group2{
   flex-basis: 380px;
@@ -57,7 +177,7 @@ body {
 
 .group3{
   flex-basis: 190px;
-  /* order: -1; flex아이템은 유연하게 위치조정, 크기조정 가능*/
+  /* order: -1;*/ /*순서 바꾸는 것. (flex아이템은 유연하게 위치조정, 크기조정 가능)*/
 }
 
 .footer-bg{
