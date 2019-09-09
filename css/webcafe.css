@@ -20,6 +20,7 @@ a:link{ 방문한 적이 없는 링크
 a:visited{ 방문한 적이 있는 링크
   color :#999;
 }
+
 a:hover, a:focus{해당 링크에 마우스를 올렸을 떄 색을 바꾼다
   color: red;
 }
@@ -45,7 +46,7 @@ body {
   margin : 0;
   padding : 0;
   color: #181818;/* 같은 숫자가 2번 반복되면 축소가능 ex)FF0000 -> F00 */
-  font-family: 'Spoqa Han Sans', 'Sans-serif'; /*Spoqa Han Sans를 사용하는데 만약 글꼴이 없다면 Sans-serif를 사용해라.*/
+  font-family: 'Spoqa Han Sans', 'Sans-serif'; /* Spoqa Han Sans를 사용하는데 만약 글꼴이 없다면 Sans-serif를 사용해라. */
   font-weight: 400;
 }
 
@@ -56,7 +57,7 @@ body {
 
 .header{
   /*height : 10vh; /* 뷰포트 기준 10퍼센트 */
-  background-color : pink;
+  /* background-color : pink; */
   position: relative; /* 떠있는듯한 포지션을 가지게 된다 */
   padding: 0 30px 50px 30px;
 }
@@ -67,6 +68,8 @@ body {
   position: absolute;
   left: 70px;
   top: 50px;
+  /* z-index: 10; */
+  /* 포지션등을 가져서 뜨게되면 z-index란 값을 가질 수 있다. */
 }
 
 /* 멤버링크 */
@@ -112,9 +115,11 @@ body {
   box-shadow: 0 -2px 2px 0 #000;
 }
 
+/* .menu > li > 자식선택자. 바로아래 자식만 선택한다. 그냥 띄어쓰기로 하면 모든 li를 찾음 */
+
 .menu-item{
   float: left;
-  line-height: 45px;
+  position: relative;
 }
 
 .menu::after{/*그라데이션 칠하기*/
@@ -122,27 +127,142 @@ body {
   background-color: aqua;
   display : block;
   clear : both; /*블록 상자만 적용 가능*/
-}
+} /*float를 해결하기 위한 방안*/
 
 .btn-menu{
+  display: block;
+  padding: 0 20px;
+  height: 45px;
+  line-height: 45px;
+  border-left: 2px solid rgba(255,255,255, 0.5);
   font-weight: 700;
   font-size: 1.6rem;
   color: #fff;
   text-shadow: 1px 0 0 #000, -1px 0 0 #000, 0 1px 0 #000, 0 -1px 0 #000;
 }
 
+/* .btn-menu:hover{
+  display: block;
+  border-top : 2px solid #000;
+  color: #ff0
+} */
+
+.menu-act .btn-menu{
+  color: #ff0 !important;
+ /*important로 우선순위를 올릴 수 있음 */
+}
+
+.menu-act .btn-menu::after{
+  content : '';
+  display: block;
+  border-top : 2px solid #000;
+}
+
 .sub-menu{
   padding-left: 0px;
   margin: 0;
   list-style: none;
-  background-color: yellow;
   position : absolute;
   display : none; /*안보이게 가림*/
+  white-space: nowrap;
+}
+
+.menu-act .sub-menu{
+  display:block;
+  top : 47px;
+}
+
+.sub-menu1 a{
+  padding: 8px 0 7px 0;
+  margin-right: 10px;
+}
+
+.sub-menu li, .sub-menu1 a{
+  display: inline-block;
+}
+
+.sub-menu1, .sub-menu2, .sub-menu3{
+  left : 0;
+}
+
+.sub-menu4, .sub-menu5, .sub-menu6{
+  right : 0;
+}
+
+/* +기호로 형제 선택자를 선택할 수 있다. */
+
+
+/* 비주얼 파트 */
+@keyframes text-ani{
+  0%{ /*출발점(from)*/
+    font-size: 12px;
+    color : rgba(0,0,0, 0);
+    transform: tranqslate(0,0);
+    /* top : 0; */
+    /* left : 0; */
+    /* padding: 0; */
+  } 
+  100%{ /*종료점(to)*/
+    font-size: 24px;
+    color : rgba(0,0,0, 1);
+    transform: translate(400px,75px);
+    /* top: 75px; */
+    /* left: 400px; */
+    /* padding: 75px 0 0 400px; */
+  } 
+  /* from{} */
+  /* to{} */
+}
+
+@keyframes flower-ani{
+  0%{ opacity: 1; }
+  100%{ opacity: 0; }
 }
 
 .visual{
-  background-color : red;
+  background: url('images/bg_flower.png');
   height : 120px;
+  position: relative;
+}
+
+.visual::before, .visual::after{
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute; /*absolute하면 블록으로 적용!*/
+}
+
+.visual::before{
+  background-image: url("./images/ani_flower_01.png"), url("./images/ani_flower_02.png");
+  background-repeat: no-repeat /*이미지가 반복되지 않게 함*/;
+  background-position: 0 -10px, 670px 0;
+  animation-name: flower-ani;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+  animation-timing-function: ease-in-out; /*동적? 실제 물리처럼 움직이는 것*/
+  /*animation-play-state: paused;*/ /*애니메이션을 멈추느느 기능*/
+  /* animation: flower-ani 2000ms [1000ms] infinite alternate ease-in-out; */ /*짧게 표현할 수 있는 식 [딜레이][옵션]*/
+}
+
+.visual::after{
+  /* animation-delay: 1s; */
+  background: url("./images/ani_flower_03.png") no-repeat 300px 0,
+              url("./images/ani_flower_04.png") no-repeat 800px 15px;
+  animation-name: flower-ani; /*애니메이션 이름*/
+  animation-duration: 2s; /*애니메이션 실행 속도*/
+  animation-iteration-count: infinite; /*애니메이션 실행 횟수*/
+  animation-direction: alternate; /*애니메이션의 방향성 (자연스럽게)*/
+  animation-timing-function: ease-in-out;
+}
+
+.visual-text{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  /* background-color: #ff0; */
+  position: absolute;
+  animation-name: text-ani;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
 }
 
 .main-content{
