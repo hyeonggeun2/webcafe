@@ -27,7 +27,7 @@ a:hover, a:focus{해당 링크에 마우스를 올렸을 떄 색을 바꾼다
 */
 
 /* 숨김컨텐츠 */
-.a11y-hidden{ /*보이면 안되는 글씨 숨기기*/
+.a11y-hidden, legend{ /*보이면 안되는 글씨 숨기기*/
   position: absolute;
   width : 1px;/*position과 합쳐서 숨기는 방법.*/
   height : 1px;
@@ -48,6 +48,7 @@ body {
   color: #181818;/* 같은 숫자가 2번 반복되면 축소가능 ex)FF0000 -> F00 */
   font-family: 'Spoqa Han Sans', 'Sans-serif'; /* Spoqa Han Sans를 사용하는데 만약 글꼴이 없다면 Sans-serif를 사용해라. */
   font-weight: 400;
+  background-color: gray;
 }
 
 .header, .visual, .main-content, .slogan, .footer{
@@ -197,7 +198,7 @@ body {
   0%{ /*출발점(from)*/
     font-size: 12px;
     color : rgba(0,0,0, 0);
-    transform: tranqslate(0,0);
+    transform: translate(0,0);
     /* top : 0; */
     /* left : 0; */
     /* padding: 0; */
@@ -266,7 +267,7 @@ body {
 }
 
 .main-content{
-  background-color : blue;
+  background-color : #fff;
   display : flex;
   min-height : 400px;
   padding: 30px;
@@ -275,13 +276,288 @@ body {
   justify-content: space-between;/* 알아서 여백을 계산해준다 */
 }
 
+.login{
+  background: #ed8625 radial-gradient(circle at right top, #f7cc31, #ed8625);
+  border-radius: 5px;
+  box-shadow: 5px 5px 0 0 #666;
+  padding: 10px;
+}
+
+.login-heading{
+  margin: 0;
+  text-indent: 10px; /* 첫줄 들여쓰기(박스크기에 영향을 주지 않음) */
+  font-size: 1.5rem;
+  color: #ff0; 
+}
+
+.login-form{
+  background-color: #fff;
+  margin-top:10px;
+  padding : 10px 10px 0 10px;
+  border-radius: 5px 5px 0 0;
+}
+
+.login-form fieldset{
+  border: 0;
+  padding : 0 0 10px 0;
+  /* background-color: #fff; */
+  border-bottom: 1px solid #aaa;
+  position: relative;
+}
+
+.login-form label{
+  display:inline-block;
+  width : 4em;
+}
+
+.login-form [type="email"], [type="password"]{/* [타입선택자] */
+  width: 90px;
+  height: 22px;
+  border: 1px solid #aaa;
+  padding: 1px 1px 1px 5px;
+}
+
+.sign{
+  margin : 0px;
+  padding-left: 0px;
+  padding : 10px;
+  background-color: #fff;
+  border-radius: 0 0 5px 5px;
+  list-style-type: none;
+  display:flex;
+  justify-content: space-between;
+}
+
+.sign li{
+  font-size: 1.3rem;
+}
+
+.sign li::before{
+  color: #ed8625;
+}
+
+#user-pw{
+  margin-top:6px;
+}
+
+.btn-login{
+  position: absolute;
+  width : 50px;
+  height : 50px;
+  right : 0px;
+  top : 0px;
+  border : 1px solid #ed8625;
+  background-color: #f7cc31;
+  color: #fff;
+  padding : 0;
+  border-radius: 3px;
+}
+
+/* .login {
+  background: #ed8625 radial-gradient(circle at right top, #f7cc31, #ed8625);
+  border-radius: 7px;
+  box-shadow: 7px 7px 0 0 lightgray;
+  padding: 10px;
+  width:250px;
+  height: 160px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.login-heading{
+  font-size : 1.4rem;
+  color: yellow;
+  margin: 0 0 10px 10px;
+}
+
+.btn-login{
+  background-color: #ed8675;
+  width : 50px;
+  height: 50px;
+  font-size: 1.2rem;
+  color: #fff;
+  position: absolute;
+  top: 45px;
+  left: 180px;
+  border-radius : 5px;
+}
+
+.login form{
+  background-color: #fff;
+}
+
+.login input {
+  width : 100px;
+  height : 25px;
+}
+
+.login form fieldset{
+  border: 0;
+  padding : 0;
+  background-color: #fff;
+}
+
+.sign{
+  display : flex;
+  list-style-type: none;
+  background-color: #fff;
+  justify-content: space-between;
+  margin : 0px;
+  padding : 0px;
+  padding-top : 10px;
+  border-top: 2px solid lightgray;
+} */
+
+/* 유효성 검사 배너 */
+.validation-list{
+  margin : 25px 0;
+  list-style: none;
+  padding-left : 0px;
+}
+
+.validation-list li{
+  margin : 10px 0;
+}
+
+.validation-list a{
+  /* 배경이미지 2개 입히는법 repeat:반복 숫자2개: x위치 y위치 [기본값 repeat 0 0]*/
+  background: url('images/validation_icon.png') no-repeat 25px 50%,linear-gradient(#ccc, #eee);
+  display: block;
+  border : 1px solid #aaa;
+  border-radius: 30px;
+  padding : 8px 0 8px 45px;
+}
+
+/* .validation-list{
+  margin : 20px 0 0 0;
+  list-style-type: none;
+  padding : 0;
+} */
+
+/* .validation-list li{
+  margin-bottom : 10px;
+  background-color: #aaa;
+  border : 1px solid black;
+  border-radius: 10px 10px;
+  padding-left : 20px;
+} */
+
+/* .validation{
+  margin: 20px 0;
+}
+
+.validation-list a{
+  background-color: #aaa;
+  border : 1px solid black;
+  border-radius: 20px;
+  padding : 6px;
+  display : block;
+  margin-bottom : 10px;
+}
+
+.validation-list a::before{
+  content: url(images/validation_icon.png);
+}
+
+.validation-list a:hover{
+  color : red;
+} */
+
+/* 웹 관련 용어 */
+
+.term{
+  background:#ccc linear-gradient(#ccc, #eee);
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  padding : 10px 15px;
+}
+
+.term-heading{
+  margin: 0;
+  font-size:1.5rem;
+}
+
+.term-list{
+  margin: 10px 0 0 0;
+}
+
+.term-list-thumbnail, .term-list-brief{
+  margin-left : 0;
+}
+
+.odd .term-list-subject, .term-list-brief{
+  float:right;
+  width : 145px;
+}
+
+.even .term-list-subject, .even .term-list-brief{
+  float:left;
+  width : 145px;
+}
+
+.term-list-subject{
+  margin: -2px 0 5px 0; /*margin은 -요소가 가능!(끌어올릴 수 있음)*/
+  color: #296897;
+}
+
+.odd .term-list-thumbnail{
+  float:left;
+}
+
+.even .term-list-thumbnail{
+  float:right;
+}
+
+.term-list-thumbnail img{
+  vertical-align: top; /*img아래의 작은 gap을 삭제할 수 있음.*/
+}
+
+.term-list-brief{
+  line-height: 1.5;
+  margin-bottom : 15px;
+}
+
+.term-list::after{/* clear처리 */
+  content: '';
+  display : block;
+  clear : both; /*블록 상자만 적용 가능*/
+} /*float를 해결하기 위한 방안*/
+
+/* .term{
+  background:linear-gradient(#aaa, #fff);
+  border: 1px solid #666;
+  border-radius: 5px;
+  padding:15px;
+  box-sizing: border-box;
+}
+
+.term-heading{
+  padding:0px;
+  margin:0px;
+}
+
+.term-list dd{
+  margin-top:10px;
+}
+
+.term-list-subject{
+  color: #296897;
+  display : inline;
+}
+
+.term-list-brief{
+  margin : 0px;
+  padding : 0px;
+}
+
+.term-list-thumbnail{
+  float:left;
+  margin: 0 10px 0 0;
+} */
+
 .slogan{
   background-color : orange;
   padding : 15px 0;
-}
-
-.group{
-  background-color: red;
 }
 
 .group1{
@@ -293,10 +569,13 @@ body {
 
 .group2{
   flex-basis: 380px;
+  background-color: red;
+  /* flex-basis는 최소크기로 컨텐츠를 확장시킨다. */
 }
 
 .group3{
   flex-basis: 190px;
+  background-color: red;
   /* order: -1;*/ /*순서 바꾸는 것. (flex아이템은 유연하게 위치조정, 크기조정 가능)*/
 }
 
