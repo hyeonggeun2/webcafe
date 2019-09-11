@@ -48,7 +48,7 @@ body {
   color: #181818;/* 같은 숫자가 2번 반복되면 축소가능 ex)FF0000 -> F00 */
   font-family: 'Spoqa Han Sans', 'Sans-serif'; /* Spoqa Han Sans를 사용하는데 만약 글꼴이 없다면 Sans-serif를 사용해라. */
   font-weight: 400;
-  background-color: gray;
+  background: gray linear-gradient(#ccc, #eee);
 }
 
 .header, .visual, .main-content, .slogan, .footer{
@@ -61,6 +61,8 @@ body {
   /* background-color : pink; */
   position: relative; /* 떠있는듯한 포지션을 가지게 된다 */
   padding: 0 30px 50px 30px;
+  background-color: #fff;
+  border-radius: 0 0 15px 15px;
 }
 
 /* 로고 */
@@ -173,12 +175,12 @@ body {
   top : 47px;
 }
 
-.sub-menu1 a{
+.sub-menu a{
   padding: 8px 0 7px 0;
   margin-right: 10px;
 }
 
-.sub-menu li, .sub-menu1 a{
+.sub-menu li, .sub-menu a{
   display: inline-block;
 }
 
@@ -701,6 +703,55 @@ input[type="search"]{
   flex-direction: column;
 }
 
+/* 새소식 */
+.news{
+  position: relative;
+}
+
+.news-heading{
+  margin:15px 55px 20px 0; 
+  padding:0; 
+  padding-bottom:20px;
+  font-size:1.1em;
+  color: #ed8625;
+  border-bottom: 1px solid #ccc;
+  border-image: linear-gradient(to right, #aaa, #eee);
+  border-image-slice: 1;
+}
+
+.news-title{
+  margin: 0 0 5px 0;
+  font-size : 1em;
+}
+
+.news-content{
+  line-height: 1.5;
+}
+
+.img-part{
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+
+.img-part img{
+  margin-bottom:10px;
+  box-shadow: 0px 10px 10px 0px #999, 8px 20px 10px 0px #ddd, -8px 20px 10px 0px #ddd;
+}
+
+.news-title, .news-content, .news time{
+  float : right;
+  width : 250px;
+  margin-left:15px;
+}
+
+.news::after{
+  content: '';
+  display : block;
+  clear : both;
+}
+
+/* 그룹3 */
 .slogan{
   background-color : orange;
   padding : 15px 0;
