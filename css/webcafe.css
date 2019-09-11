@@ -745,6 +745,10 @@ input[type="search"]{
   margin-left:15px;
 }
 
+.news-img-title{
+  padding-bottom:20px;
+}
+
 .news::after{
   content: '';
   display : block;
