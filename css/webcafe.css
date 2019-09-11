@@ -555,6 +555,152 @@ body {
   margin: 0 10px 0 0;
 } */
 
+/*검색 폼*/
+.search-form{
+  background:#ccc linear-gradient(#ccc, #eee);
+  padding : 15px 25px 10px;
+  border-width:1px 1px 0 1px;
+  border-style: solid solid none solid;
+  border-color: #aaa #aaa transparent #aaa;
+  border-radius: 15px 15px 0 0;
+}
+
+.search-form fieldset{
+  border : 0;
+  padding : 0;
+  margin : 0;
+}
+
+label[for="search"], .search-form input, .btn-search{
+  vertical-align: middle;/*inline요소에서 사용한다.*/
+}
+
+.btn-search{
+  background-color: #121212;
+  color : #fff;
+  font : inherit; /*상속값을 쓴다.*/
+  border : 1px solid #aaa;
+  border-radius: 3px;
+  padding: 0 10px;
+  height: 24px;
+  font-size:1.3rem;
+}
+
+input[type="search"]{
+  height: 24px;
+  border: 1px solid #aaa;
+  padding : 1px 1px 1px 5px;
+  width: 200px;
+  border-radius: 3px;
+  margin : 0 2px;
+}
+
+/* .search-form fieldset{
+  background:#ccc linear-gradient(#ccc, #eee);
+  border : 1px solid #999;
+  border-bottom: 0;
+  border-radius: 15px 15px 0 0/15px 15px 0 0;
+  padding: 15px 20px 10px 20px;
+}
+
+.btn-search{
+  background-color: #000;
+  color : #fff;
+  border-radius: 4px;
+  padding: 3px 7px;
+}
+
+.search-form input{
+  width: 200px;
+  height: 25px;
+  border-radius: 3px;
+} */  
+
+/* 공지사항, 자료실 */
+
+.board ul, .board .more{
+  display:none;
+}
+
+.tab-act ul, .tab-act .more{
+  display:block !important;
+}
+
+.board{
+  position: relative;
+  margin-top : 20px;
+}    
+
+.notice-heading, .pds-heading{
+  margin : 0px;
+  font-weight: 400;
+  font-size: 1em;
+  position: absolute;
+  top : 0;
+}    
+
+.notice-heading{
+  left: 0;
+}    
+
+.pds-heading{
+  position: absolute;
+  left : 73px;
+}    
+
+.more {
+  position: absolute;
+  top:0;
+  right :0;
+}
+
+.more::before{
+  color: hsla(110,70%,20%,1);/*색상 채도 명도 투명성*/
+}
+
+.board ul{
+  margin: 20px 0;
+  padding: 45px 0 0 0;
+  list-style: none;
+}    
+
+.board li{
+  margin: 8px 0;
+  display:flex;
+}
+
+.board li a{
+  width:270px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /*위 3개는 같이 사용해야 한다.*/
+}
+
+.board time{
+  margin-left:auto;
+}
+
+.tab{
+  display:block;
+  background:#ccc linear-gradient(#ccc, #eee);
+  border : 1px solid #aaa;
+  border-radius: 5px 5px 0 0;
+  padding : 5px 10px;
+  color:#666;
+}
+
+.tab-act .tab{
+  color : #ed8625;
+  border-color: #ed8625 #ed8625 #fff #ed8625;
+  background: #fff;
+}
+
+.notice-list{
+  display:flex;
+  flex-direction: column;
+}
+
 .slogan{
   background-color : orange;
   padding : 15px 0;
@@ -569,7 +715,6 @@ body {
 
 .group2{
   flex-basis: 380px;
-  background-color: red;
   /* flex-basis는 최소크기로 컨텐츠를 확장시킨다. */
 }
 
