@@ -705,11 +705,87 @@ input[type="search"]{
 
 /* 새소식 */
 .news{
+  margin-top:20px;
+  position: relative;
+}
+
+.news::before{
+  content: '';
+  background: #ccc linear-gradient(to right, #aaa, #eee);
+  position: absolute;
+  top: 30px;
+  left: 0;
+  width: 80%;
+  height: 1px;
+}
+
+.news-more{
+  display:block;
+  top:0px;
+  right:0px;
+}
+
+.news-heading{
+  margin: 0 70px 0 0;
+  padding-bottom:20px;
+  font-size: 1.5rem;
+  color: #ed8625;
+}
+
+.news-link{
+  display:block;
+}
+
+.news-article{
+  padding-left:130px;
+  position: relative;
+  min-height: 105px;
+}
+
+.news-article-subject{
+  font-size: 1em;
+  margin:20px 0 0 0;
+  font-weight: 400;
+}
+
+.news-article-data{
+  display:block;
+  margin: 5px 0 10px 0;
+}
+
+.news-article-brief{
+  margin:0;
+  line-height: 1.5;
+}
+
+.news-article-thumbnail{
+  margin:0px;
+  position: absolute;
+  top:3px;
+  left:0;
+  text-align: center;
+}
+
+.news-article-thumbnail img{
+  box-shadow: 0 15px 15px 0 #aaa;
+}
+
+.news-article-thumbnail figcaption{
+  margin-top:15px;
+}
+
+.news::after{
+  content: '';
+  display:block;
+  clear: both;
+}
+
+/* .news{
   position: relative;
 }
 
 .news-heading{
-  margin:15px 55px 20px 0; 
+  margin:15px 55px 30px 0; 
   padding:0; 
   padding-bottom:20px;
   font-size:1.1em;
@@ -753,9 +829,33 @@ input[type="search"]{
   content: '';
   display : block;
   clear : both;
+} */
+
+/*신규 이벤트 및 관련사이트*/
+.orange{
+  color:#ed8625;
 }
 
-/* 그룹3 */
+.gradient-box{
+  background: #ccc linear-gradient(#ccc,#eee);
+  border: 1px solid #bbb;
+  border-radius: 5px;
+}
+
+.event-heading, .related-heading{
+  font-size: 1.1em;
+}
+
+.btn-event-prev{
+  background-image: url(images/back_forward.png);
+  background-repeat: no-repeat;
+}
+
+.btn-event-next{
+  background-image: url(images/back_forward.png);
+  background-repeat: no-repeat;
+}
+
 .slogan{
   background-color : orange;
   padding : 15px 0;
@@ -775,7 +875,6 @@ input[type="search"]{
 
 .group3{
   flex-basis: 190px;
-  background-color: red;
   /* order: -1;*/ /*순서 바꾸는 것. (flex아이템은 유연하게 위치조정, 크기조정 가능)*/
 }
 

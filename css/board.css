@@ -1,0 +1,184 @@
+@charset "utf-8";
+@import url('https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css');
+@import url('https://necolas.github.io/normalize.css/latest/normalize.css'); /* html에 link해서 사용할 수 있고, 이렇게도 사용할 수 있다 */
+@import url('./fontello.css');
+
+/* 초기화 */
+*, *::before, *::after{ /* 전체 선택자 */
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color : inherit;/* 글자색이 부모에게 상속된 색으로 적용된다. (body에서 색을 바꾸면 한번에 적용)*/
+}
+
+/* 숨김컨텐츠 */
+.a11y-hidden, legend{ /*보이면 안되는 글씨 숨기기*/
+  position: absolute;
+  width : 1px;/*position과 합쳐서 숨기는 방법.*/
+  height : 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip:rect(0,0,0,0); /*잘라낸다. absolute가 필요.*/
+  white-space: nowrap; /*줄바꾸기 금지*/
+}
+
+html{
+  font-size: 10px;
+}
+
+body {
+  font-size: 1.4rem; /*root의 글자사이즈(해당CSS문서는 10px[html{font-size: 10px}]) * 1.4*/
+  margin : 50px;
+  padding : 0;
+  color: #181818;/* 같은 숫자가 2번 반복되면 축소가능 ex)FF0000 -> F00 */
+  font-family: 'Spoqa Han Sans', 'Sans-serif'; /* Spoqa Han Sans를 사용하는데 만약 글꼴이 없다면 Sans-serif를 사용해라. */
+  font-weight: 400;
+  background: #fff;
+}
+
+/* 탭 UI*/
+
+/* 
+ul, li{
+  margin : 0px;
+  padding : 0px;
+}
+
+.board li{
+  list-style: none;
+}
+
+.board{
+  position: relative;
+  width: 380px;
+}
+
+.tab-list{
+  display:flex;
+}
+
+.tab-list a{
+  padding:8px;
+  border:1px solid #181818;
+  border-radius: 5px 5px 0 0;
+}
+
+.tab-content{
+  margin-top:20px;
+}
+
+.board-list li{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.board-list li a{
+  width:270px;
+  line-height: 1.7;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tab-content section{
+  display:none;
+}
+
+.tab-content-act{
+  display:block !important;
+}
+
+.more {
+  position: absolute;
+  top:0;
+  right :0;
+}
+
+.more::before{
+  color: hsla(110,70%,20%,1);
+}*/
+
+.board{
+  position: relative;
+  width:380px;
+}
+
+.tab-list, .board-list{
+  list-style: none;
+  padding-left:0px;
+  margin:0px;
+}
+
+.tab-list{
+}
+
+.tab-list::after{
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.tab-list li{
+  float:left;
+}
+
+.tab-content{
+  
+}
+
+[role="tab"]{
+  display:block;
+  padding: 5px 10px;
+  border: 1px solid #aaa;
+  background: #ccc linear-gradient(#ccc, #eee);
+  color:#aaa;
+  border-radius: 5px 5px 0 0;
+}
+
+[role="tab"][aria-selected="true"]{
+  background: #fff;
+  border-color: hsla(30, 70%, 60%, 1) hsla(30, 70%, 60%, 1) #fff hsla(30, 70%, 60%, 1);
+  color : hsla(30, 70%, 60%, 1);
+}
+
+.notice, .pds{
+  display: none;
+}
+
+.tab-content-act{
+  display:block !important;
+}
+
+.board-list{
+  margin-top:20px;
+}
+
+.board-list li{
+  display: flex;
+  margin : 5px;
+}
+
+.board-list time{
+  margin-left: auto;
+}
+
+.board-list a{
+  width: 285px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.more{
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  padding: 5px;
+}
+
+.more::before{
+  color: hsla(110, 50%, 30%, 1)
+}
