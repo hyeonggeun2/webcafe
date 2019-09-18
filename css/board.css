@@ -112,9 +112,6 @@ ul, li{
   margin:0px;
 }
 
-.tab-list{
-}
-
 .tab-list::after{
   content: '';
   display: block;
@@ -123,10 +120,6 @@ ul, li{
 
 .tab-list li{
   float:left;
-}
-
-.tab-content{
-  
 }
 
 [role="tab"]{
